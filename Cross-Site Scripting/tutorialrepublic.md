@@ -18,7 +18,7 @@ An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists i
 ```
 
 ## Steps to Reproduce
-1. Interact with the search box and observe whether the input `cybrnoob'">` is reflected in the source.
+1. Interact with the search box at `https://tutorialrepublic.pwnedbox.site/` and observe whether the input `cybrnoob'">` is reflected in the source.
    <img width="1512" height="982" alt="SCR-20261119-jyqv" src="https://github.com/user-attachments/assets/9a9e3c61-fc9a-4b15-b429-9b6a9dc27220" />
 2. Inject javascript in the search box to verify if it is executed.
   - Note: `alert(), confirm(), prompt(), console.log(), console.error(), fetch()` all generate valid responses.
