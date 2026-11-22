@@ -4,7 +4,7 @@ Unauthenticated Reflected XSS in Search Functionality Allows Arbitrary JavaScrip
 ## OWASP - Vulnerability
 OWASP Top 10 2025 - A05 Injection
 
-## Summary
+## Description
 An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists in the website's search functionality, allowing attackers to execute arbitrary JavaScript in a victim's browser. When a user visits a specially crafted URL containing malicious script in the search query, the server immediately reflects that input back into the HTTP response without proper sanitization or context-aware output encoding.
 
 ## Vulnerable Endpoint
