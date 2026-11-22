@@ -4,7 +4,7 @@ Unauthenticated Reflected XSS Bypasses Case-Sensitive Filter Allowing Arbitrary 
 ## OWASP - Vulnerability
 OWASP Top 10 2025 - A05 Injection
 
-## Description / Summary
+## Description
 An unauthenticated Reflected Cross-Site Scripting (XSS) vulnerability exists in the website's feedback form (fname and lname parameters). The server reflects user input into the HTTP response without context-aware output encoding, and the existing <script> filter is case-sensitive, so a mixed-case <Script> tag bypasses it and executes arbitrary JavaScript in a victim's browser.
 
 ## Vulnerable Endpoint
